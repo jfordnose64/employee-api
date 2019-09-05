@@ -16,3 +16,12 @@ body {
 .link-emp {
   padding: 1rem;
 }
+
+.employee-list {
+  list-style: none;
+  border: 0.1rem solid black;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-basis: 100%;
+}

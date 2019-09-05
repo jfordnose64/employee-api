@@ -9,16 +9,17 @@ class App extends Component {
     return (
       <Router>
         <h1>Welcome to Twisser</h1>
-        <Route exact path="/" component={HomePage} />
         <Link className="link-home" to="/">
           Home Page!
         </Link>
-        <Link className="link-emp" to="/add-employee">
+        <Link className="link-emp" to="/add">
           ADD+
         </Link>
-        <Link to="/employees">Twisser Employees</Link>
-        <Route exact path="/employees" component={Employees} />
-        <Route exact path="/add-employee" component={AddNewEmployee} />
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route exact path="/add" component={AddNewEmployee} />
+          <Route exact path="/:employee" component={Employees} />
+        </Switch>
       </Router>
     )
   }

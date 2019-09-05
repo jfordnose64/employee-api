@@ -1,24 +1,37 @@
-import React, { useState, useEffect } from 'react'
-import axios from 'axios'
+import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
+import Axios from 'axios'
 
 const HomePage = () => {
-  const [employee, setEmployee] = useState([])
+  const [employees, setEmployees] = useState([])
 
-  const fetchCompany = async () => {
-    const resp = await axios.get(
+  const fetchEmployees = async () => {
+    const resp = await Axios.get(
       'https://sdg-staff-directory-app.herokuapp.com/api/Company/twisser'
     )
-    setEmployee(resp.data)
     console.log(resp.data)
+    setEmployees(resp.data)
   }
 
   useEffect(() => {
-    fetchCompany()
+    fetchEmployees()
   }, [])
 
   return (
     <div>
-      <h4>Don't forget to add yourself!</h4>
+      <nav>
+        <ul>
+          {employees.map(employee => {
+            return (
+              <Link to={`/${employee.id}`}>
+                <li className="employee-list">
+                  <h3>{employee.firstName}</h3>
+                </li>
+              </Link>
+            )
+          })}
+        </ul>
+      </nav>
     </div>
   )
 }

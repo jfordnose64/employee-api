@@ -1,35 +1,28 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import Axios from 'axios'
 
-const Employees = () => {
-  const [employees, setEmployees] = useState([])
+const Employees = props => {
+  const [employeeData, setEmployeeData] = useState('')
 
-  const fetchEmployees = async () => {
+  const fetchEmployeeData = async () => {
     const resp = await Axios.get(
-      'https://sdg-staff-directory-app.herokuapp.com/api/Company/twisser'
+      `https://sdg-staff-directory-app.herokuapp.com/api/twisser/Employees/${props.match.params.employee}`
     )
     console.log(resp.data)
-    setEmployees(resp.data)
+    setEmployeeData(resp.data)
   }
 
   useEffect(() => {
-    fetchEmployees()
+    fetchEmployeeData()
   }, [])
-
   return (
     <div>
-      <nav>
-        <ul>
-          {employees.map(employee => {
-            return (
-              <li>
-                <h3>{employee.firstName}</h3>
-                <p>{employee.jobTitle}</p>
-              </li>
-            )
-          })}
-        </ul>
-      </nav>
+      <h2>First Name: {employeeData.firstName}</h2>
+      <h3>Last Name: {employeeData.lastName}</h3>
+      <p>Job Title: {employeeData.jobTitle}</p>
+      <p>Email: {employeeData.email}</p>
+      <p>Phone Number: {employeeData.phoneNumber}</p>
     </div>
   )
 }

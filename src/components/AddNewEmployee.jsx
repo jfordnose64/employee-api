@@ -4,8 +4,9 @@ import axios from 'axios'
 const AddNewEmployee = () => {
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
-  const [isFullTime, setFullTime] = useState('')
   const [jobTitle, setJobTitle] = useState('')
+  const [phoneNumber, setPhoneNumber] = useState('')
+  const [email, setEmail] = useState('')
 
   const addEmployee = async () => {
     const resp = await axios.post(
@@ -13,8 +14,9 @@ const AddNewEmployee = () => {
       {
         firstName,
         lastName,
-        isFullTime,
-        jobTitle
+        jobTitle,
+        email,
+        phoneNumber
       }
     )
   }
@@ -50,12 +52,21 @@ const AddNewEmployee = () => {
           />
         </section>
         <section>
-          <label>Full Time?</label>
+          <label>Email</label>
           <input
-            type="drop-down"
-            placeholder="123"
-            value={isFullTime}
-            onChange={e => setFullTime(e.target.value)}
+            type="text"
+            placeholder="yomama@gmail.com"
+            value={email}
+            onChange={e => setEmail(e.target.value)}
+          />
+        </section>
+        <section>
+          <label>Phone Number</label>
+          <input
+            type="number"
+            placeholder="555-555-5555"
+            value={phoneNumber}
+            onChange={e => setPhoneNumber(e.target.value)}
           />
         </section>
         <section>
