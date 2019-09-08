@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css?family=Varela+Round&display=swap');
+
 :root {
   font: 16px / 1 sans-serif;
+  font-family: 'Varela Round', sans-serif;
 }
 
 html {
@@ -17,11 +20,71 @@ body {
   padding: 1rem;
 }
 
+.link-home:hover,
+.link-emp:hover {
+  opacity: 0.6;
+  cursor: pointer;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 0.5rem;
+}
+
+.link-home:visited,
+.link-emp:visited,
+.link-employee:visited {
+  text-decoration: none;
+  color: black;
+}
+
+.link-employee {
+  text-decoration: none;
+  color: black;
+  padding: 1rem 1rem;
+}
+
 .employee-list {
   list-style: none;
-  border: 0.1rem solid black;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   flex-basis: 100%;
+  background-color: gray;
+  margin: 0 auto;
+  width: 20rem;
+  border-radius: 0.5rem;
+}
+
+.employee-list:hover {
+  opacity: 0.6;
+  cursor: pointer;
+  width: 30rem;
+}
+
+.list-ul {
+  padding: 0rem;
+}
+
+.header {
+  background-color: gray;
+  border-radius: 0.5rem;
+  margin: 2rem auto;
+  padding: 1rem 1rem;
+  width: 20rem;
+}
+
+.employee-card {
+  border: 1px solid black;
+  width: 20rem;
+  margin: 1rem auto;
+  border-radius: 0.5rem;
+}
+
+.delete-button {
+  margin: 1rem;
+  border-radius: 0.5rem;
+}
+
+.delete-button:hover {
+  opacity: 0.6;
+  cursor: pointer;
 }

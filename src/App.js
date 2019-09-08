@@ -8,7 +8,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <h1>Welcome to Twisser</h1>
+        <h1 className="header">Welcome to Twisser</h1>
         <Link className="link-home" to="/">
           Home Page!
         </Link>

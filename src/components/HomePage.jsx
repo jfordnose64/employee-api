@@ -20,10 +20,10 @@ const HomePage = () => {
   return (
     <div>
       <nav>
-        <ul>
+        <ul className="list-ul">
           {employees.map(employee => {
             return (
-              <Link to={`/${employee.id}`}>
+              <Link className="link-employee" to={`/${employee.id}`}>
                 <li className="employee-list">
                   <h3>{employee.firstName}</h3>
                 </li>
